@@ -1,0 +1,197 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ─────────────────────────────────────────────────────────────────
+
+enum ProgrammeStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum StudentStatus {
+  ENROLLED
+  DEFERRED
+  WITHDRAWN
+  COMPLETED
+}
+
+enum Role {
+  STAFF
+  STUDENT
+}
+
+enum GradeClassification {
+  DISTINCTION
+  MERIT
+  PASS
+  FAIL
+}
+
+// ─── Models ────────────────────────────────────────────────────────────────
+
+/// Academic programme offered by the institution
+model Programme {
+  id         String          @id @default(cuid())
+  name       String
+  code       String          @unique
+  defaultFee Decimal         @default(0) @db.Decimal(10, 2)
+  status     ProgrammeStatus @default(ACTIVE)
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  students    Student[]
+  assessments Assessment[]
+
+  @@index([status])
+  @@map("programmes")
+}
+
+/// Student record managed by the Registry
+model Student {
+  id           String        @id @default(cuid())
+  /// Auto-generated unique identifier, e.g. SMS-2025-0001
+  studentId    String        @unique
+  fullName     String
+  email        String        @unique
+  dateOfBirth  DateTime      @db.Date
+  programmeId  String
+  academicYear String        // Format: "2024-2025"
+  status       StudentStatus @default(ENROLLED)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  programme   Programme    @relation(fields: [programmeId], references: [id])
+  fee         Fee?
+  payments    Payment[]
+  submissions Submission[]
+  user        User?
+
+  @@index([programmeId])
+  @@index([status])
+  @@index([academicYear])
+  @@index([email])
+  @@map("students")
+}
+
+/// Fee record — one per student, represents total fee assigned
+model Fee {
+  id        String   @id @default(cuid())
+  studentId String   @unique
+  amount    Decimal  @db.Decimal(10, 2)
+  dueDate   DateTime @db.Date
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@map("fees")
+}
+
+/// Individual payment transaction recorded by staff
+model Payment {
+  id              String   @id @default(cuid())
+  studentId       String
+  amount          Decimal  @db.Decimal(10, 2)
+  paymentDate     DateTime @db.Date
+  referenceNumber String   @unique
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  student Student @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  @@index([studentId])
+  @@index([paymentDate])
+  @@map("payments")
+}
+
+/// Assessment created by staff — linked to a programme and academic year
+model Assessment {
+  id           String   @id @default(cuid())
+  title        String
+  module       String
+  programmeId  String?
+  academicYear String
+  description  String?
+  deadline     DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  programme   Programme?   @relation(fields: [programmeId], references: [id])
+  submissions Submission[]
+
+  @@index([programmeId])
+  @@index([academicYear])
+  @@index([deadline])
+  @@map("assessments")
+}
+
+/// Student submission for an assessment — one per student per assessment
+model Submission {
+  id           String   @id @default(cuid())
+  studentId    String
+  assessmentId String
+  textContent  String?
+  fileName     String?
+  filePath     String?
+  fileSize     Int?     // bytes
+  mimeType     String?
+  submittedAt  DateTime @default(now())
+  /// Whether submittedAt > assessment.deadline at time of submission
+  isLate       Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  student    Student    @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  assessment Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  grade      Grade?
+
+  // DB-enforced: one submission per student per assessment
+  @@unique([studentId, assessmentId])
+  @@index([studentId])
+  @@index([assessmentId])
+  @@index([isLate])
+  @@map("submissions")
+}
+
+/// Grade entered by staff for a submission — includes publication control
+model Grade {
+  id             String              @id @default(cuid())
+  submissionId   String              @unique
+  grade          Int                 // 0–100, enforced by CHECK constraint via migration
+  classification GradeClassification
+  isPublished    Boolean             @default(false)
+  publishedAt    DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  submission Submission @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+
+  @@index([isPublished])
+  @@index([classification])
+  @@map("grades")
+}
+
+/// User account — staff or student. studentId links student users to their record.
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  role      Role     @default(STUDENT)
+  studentId String?  @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  student Student? @relation(fields: [studentId], references: [id])
+
+  @@index([role])
+  @@map("users")
+}
