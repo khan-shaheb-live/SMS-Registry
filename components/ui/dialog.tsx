@@ -37,7 +37,7 @@ const DialogContent = React.forwardRef<
       className={cn(
         "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 p-6",
         // Glass modal surface
-        "bg-white/88 backdrop-blur-[28px] [-webkit-backdrop-filter:blur(28px)]",
+        "bg-white/90 backdrop-blur-[28px] [-webkit-backdrop-filter:blur(28px)]",
         "border border-white/70",
         "rounded-[22px]",
         "shadow-[0_24px_80px_rgba(15,23,42,0.16),0_6px_20px_rgba(15,23,42,0.08)]",

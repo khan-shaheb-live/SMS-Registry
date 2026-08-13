@@ -153,27 +153,26 @@ export default async function StudentDetailPage({ params }: { params: { id: stri
         </div>
       </div>
 
-      {/* Primary Navigation Tabs */}
       <Tabs defaultValue="fees" className="w-full">
         <div className="border-b border-slate-200">
-          <TabsList className="h-auto p-0 bg-transparent gap-6">
+          <TabsList className="h-auto p-0 bg-transparent border-0 border-none shadow-none rounded-none backdrop-blur-none [-webkit-backdrop-filter:none] gap-6">
             <TabsTrigger 
               value="fees" 
-              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-1 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-0 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 hover:bg-transparent transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none shadow-none"
             >
               <CreditCard className="w-4 h-4 mr-2" />
               Fees & Payments
             </TabsTrigger>
             <TabsTrigger 
               value="submissions" 
-              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-1 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-0 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 hover:bg-transparent transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none shadow-none"
             >
               <FileText className="w-4 h-4 mr-2" />
               Submissions
             </TabsTrigger>
             <TabsTrigger 
               value="results" 
-              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-1 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none"
+              className="data-[state=active]:border-blue-600 data-[state=active]:text-blue-600 border-b-2 border-transparent rounded-none px-0 py-3 text-sm font-medium text-slate-500 hover:text-slate-700 hover:bg-transparent transition-colors bg-transparent data-[state=active]:bg-transparent data-[state=active]:shadow-none shadow-none"
             >
               <BarChart3 className="w-4 h-4 mr-2" />
               Results

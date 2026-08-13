@@ -159,7 +159,7 @@ export function StudentSidebar({ student }: StudentSidebarProps) {
           'bg-white/78 backdrop-blur-[24px] [-webkit-backdrop-filter:blur(24px)]',
           'border border-white/70',
           'shadow-[0_4px_20px_rgba(15,23,42,0.04)]',
-          'transition-[width] duration-300 ease-[cubic-bezier(0.2,0.8,0.2,1)] z-50 overflow-hidden group',
+          'transition-[width] duration-300 [transition-timing-function:cubic-bezier(0.2,0.8,0.2,1)] z-50 overflow-hidden group',
           'hover:shadow-[0_8px_30px_rgba(15,23,42,0.06)]',
           isCollapsed ? 'w-[76px] hover:w-[260px]' : 'w-[260px]'
         )}
