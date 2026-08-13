@@ -29,7 +29,7 @@ export default async function StudentDashboardPage() {
 
   // Financials
   const totalPaid = student.payments.reduce((sum, p) => sum + parseFloat(p.amount.toString()), 0)
-  const outstanding = calculateOutstandingBalance(student.fee?.amount, totalPaid)
+  const outstanding = calculateOutstandingBalance(student.fee?.amount ?? null, totalPaid)
 
   // Assessments
   const applicableAssessments = await prisma.assessment.findMany({

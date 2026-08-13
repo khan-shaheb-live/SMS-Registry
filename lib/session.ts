@@ -72,6 +72,7 @@ export async function requireAuth(): Promise<SessionUser> {
   if (!session) {
     const { redirect } = await import('next/navigation')
     redirect('/login')
+    throw new Error('Redirecting to login')
   }
   return session
 }
@@ -84,6 +85,7 @@ export async function requireStaffSession(): Promise<SessionUser> {
   if (session.role !== 'STAFF') {
     const { redirect } = await import('next/navigation')
     redirect('/student/dashboard')
+    throw new Error('Redirecting to student dashboard')
   }
   return session
 }

@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         {children}
-        <Toaster position="top-right" richColors closeButton />
+        <Toaster />
       </body>
     </html>
   )

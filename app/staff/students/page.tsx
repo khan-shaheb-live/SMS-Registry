@@ -206,7 +206,7 @@ export default async function StudentsPage({
                   const totalPaid = student.payments.reduce(
                     (sum, p) => sum + parseFloat(p.amount.toString()), 0
                   )
-                  const outstanding = calculateOutstandingBalance(student.fee?.amount, totalPaid)
+                  const outstanding = calculateOutstandingBalance(student.fee?.amount ?? null, totalPaid)
                   const feeStatus = getFeeStatus(
                     student.fee ? parseFloat(student.fee.amount.toString()) : null,
                     totalPaid,

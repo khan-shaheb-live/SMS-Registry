@@ -51,7 +51,7 @@ export default async function ProgrammesPage() {
                   <div>
                     <p className="text-[10px] uppercase font-bold tracking-wider text-slate-600">Default Tuition Fee</p>
                     <p className="text-sm font-semibold text-slate-800 mt-1">
-                      <CurrencyDisplay amount={p.defaultFee} />
+                      <CurrencyDisplay amount={parseFloat(p.defaultFee.toString())} />
                     </p>
                   </div>
                   <div>

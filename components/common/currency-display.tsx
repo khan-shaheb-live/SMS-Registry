@@ -1,7 +1,7 @@
 import { cn, formatCurrency } from '@/lib/utils'
 
 interface CurrencyDisplayProps {
-  amount: number | string | null | undefined
+  amount: any
   className?: string
   size?: 'sm' | 'md' | 'lg'
 }
@@ -11,7 +11,15 @@ export function CurrencyDisplay({ amount, className, size = 'md' }: CurrencyDisp
     return <span className={cn('text-slate-600', className)}>—</span>
   }
   
-  const num = typeof amount === 'string' ? parseFloat(amount) : amount
+  let num: number
+  if (typeof amount === 'object' && amount !== null && typeof amount.toString === 'function') {
+    num = parseFloat(amount.toString())
+  } else if (typeof amount === 'string') {
+    num = parseFloat(amount)
+  } else {
+    num = Number(amount)
+  }
+  
   const formatted = formatCurrency(num)
   
   return (

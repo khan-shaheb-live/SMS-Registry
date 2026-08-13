@@ -33,8 +33,6 @@ export async function enterGradeAction(formData: FormData) {
     update: { grade: gradeValue, classification, feedback, isPublished },
     create: {
       submissionId,
-      studentId: submission.studentId,
-      assessmentId: submission.assessmentId,
       grade: gradeValue,
       classification,
       feedback,
@@ -70,8 +68,17 @@ export async function bulkPublishGradesAction(formData: FormData) {
   const assessmentId = formData.get('assessmentId') as string
   if (!assessmentId) return { error: 'Assessment ID required' }
 
+  const submissions = await prisma.submission.findMany({
+    where: { assessmentId },
+    select: { id: true },
+  })
+  const submissionIds = submissions.map(s => s.id)
+
   await prisma.grade.updateMany({
-    where: { assessmentId, isPublished: false },
+    where: { 
+      submissionId: { in: submissionIds }, 
+      isPublished: false 
+    },
     data: { isPublished: true },
   })
 

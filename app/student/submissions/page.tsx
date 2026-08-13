@@ -66,7 +66,7 @@ export default async function StudentSubmissionsPage() {
                       )}
                     </td>
                     <td className="px-6 py-5 text-[13px] text-[#64748B] hidden md:table-cell">
-                      <span className="truncate block max-w-[200px] font-mono text-[12px] bg-white/60 backdrop-blur-sm px-2 py-0.5 rounded border border-slate-200/60" title={sub.fileName}>
+                      <span className="truncate block max-w-[200px] font-mono text-[12px] bg-white/60 backdrop-blur-sm px-2 py-0.5 rounded border border-slate-200/60" title={sub.fileName ?? undefined}>
 
                         {sub.fileName}
                       </span>
