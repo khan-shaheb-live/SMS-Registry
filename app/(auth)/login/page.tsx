@@ -2,6 +2,8 @@ import { prisma } from '@/lib/db'
 import { LoginForm } from './login-form'
 import { GraduationCap } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Sign In — SMS Registry',
 }
