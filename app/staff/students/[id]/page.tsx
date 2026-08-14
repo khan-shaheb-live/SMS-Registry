@@ -11,6 +11,8 @@ import { Edit, ArrowLeft, CreditCard, FileText, BarChart3, AlertTriangle } from 
 import { AssignFeeDialog } from '@/components/fees/assign-fee-dialog'
 import { RecordPaymentDialog } from '@/components/fees/record-payment-dialog'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const student = await prisma.student.findUnique({ where: { id: params.id }, select: { fullName: true } })
   return { title: student?.fullName ?? 'Student' }

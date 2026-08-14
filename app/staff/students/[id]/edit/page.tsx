@@ -6,6 +6,8 @@ import { StudentForm } from '@/components/students/student-form'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const student = await prisma.student.findUnique({ where: { id: params.id }, select: { fullName: true } })
   return { title: `Edit ${student?.fullName ?? 'Student'}` }

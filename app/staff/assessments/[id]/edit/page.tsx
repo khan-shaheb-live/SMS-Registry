@@ -6,6 +6,8 @@ import { AssessmentForm } from '@/components/assessments/assessment-form'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export default async function EditAssessmentPage({ params }: { params: { id: string } }) {
   const [assessment, programmes] = await Promise.all([
     prisma.assessment.findUnique({ where: { id: params.id } }),

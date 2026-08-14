@@ -9,6 +9,8 @@ import { getAssessmentStatus, getDeadlineDescription, getLateDescription } from 
 import { formatDate, formatDateTime } from '@/lib/utils'
 import { ArrowLeft, Edit, FileText, Calendar, Users } from 'lucide-react'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const a = await prisma.assessment.findUnique({ where: { id: params.id }, select: { title: true } })
   return { title: a?.title ?? 'Assessment' }

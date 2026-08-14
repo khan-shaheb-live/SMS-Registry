@@ -9,6 +9,8 @@ import { formatDateTime } from '@/lib/utils'
 import { ArrowLeft, CheckCircle2, FileText, Clock, FileUp } from 'lucide-react'
 import { UploadSubmissionDialog } from '@/components/submissions/upload-submission-dialog'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const a = await prisma.assessment.findUnique({ where: { id: params.id }, select: { title: true } })
   return { title: a?.title ?? 'Assessment' }
