@@ -11,13 +11,15 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { cn } from '@/lib/utils'
 import { LogOut, ChevronDown } from 'lucide-react'
 
 interface TopNavbarProps {
   session: SessionUser
+  maxWidthClass?: string
 }
 
-export function TopNavbar({ session }: TopNavbarProps) {
+export function TopNavbar({ session, maxWidthClass }: TopNavbarProps) {
   const displayName = session.fullName ?? session.email.split('@')[0]
   const isStaff = session.role === 'STAFF'
   const initials = displayName.split(' ').map((n: string) => n[0]).join('').substring(0, 2).toUpperCase()
@@ -29,18 +31,18 @@ export function TopNavbar({ session }: TopNavbarProps) {
       'border-b border-slate-200/60',
       'shadow-[0_1px_8px_rgba(15,23,42,0.04)]',
     ].join(' ')}>
-      <div className="w-full max-w-[1440px] mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10">
+      <div className={cn("w-full mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8 xl:px-10", maxWidthClass ?? "max-w-[1440px]")}>
         {/* Left: Portal label */}
         <div className="flex items-center gap-2.5">
           <span className="text-[14px] font-semibold text-slate-800 hidden sm:block tracking-tight">
             {isStaff ? 'Registry Administration' : 'Student Portal'}
           </span>
           {isStaff ? (
-            <span className="hidden sm:inline-flex items-center rounded-full bg-slate-100/80 backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-semibold text-slate-700 border border-slate-200/60">
+            <span className="hidden sm:inline-flex items-center rounded-full bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-semibold text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60">
               Staff
             </span>
           ) : (
-            <span className="hidden sm:inline-flex items-center rounded-full bg-emerald-50/80 backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-semibold text-emerald-600 border border-emerald-200/60">
+            <span className="hidden sm:inline-flex items-center rounded-full bg-emerald-50/80 dark:bg-emerald-950/30 backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-900/40">
               Student
             </span>
           )}

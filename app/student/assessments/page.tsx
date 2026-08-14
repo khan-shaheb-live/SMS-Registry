@@ -39,7 +39,7 @@ export default async function StudentAssessmentsPage() {
   const missedAssessments = assessments.filter(a => a.deadline <= now && !submittedAssessmentIds.has(a.id))
 
   return (
-    <div className="space-y-8 max-w-4xl mx-auto pb-10">
+    <div className="space-y-8 w-full pb-10">
       <div>
         <h1 className="text-[28px] sm:text-[30px] font-semibold text-[#0F172A] tracking-tight">
           Assessments

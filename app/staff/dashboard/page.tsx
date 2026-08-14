@@ -169,7 +169,7 @@ export default async function StaffDashboardPage() {
             {data.totalStudents}
           </p>
           <div className="flex items-center gap-2 mt-auto">
-             <span className="text-[12px] font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded flex items-center gap-1">
+             <span className="text-[12px] font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded flex items-center gap-1">
                <CheckCircle2 className="w-3 h-3" /> {data.enrolledCount} Active
              </span>
              <span className="text-[12px] text-slate-600 font-medium">Currently enrolled</span>
@@ -187,7 +187,7 @@ export default async function StaffDashboardPage() {
             <CurrencyDisplay amount={data.totalOutstanding} />
           </p>
           <div className="flex items-center gap-2 mt-auto">
-            <span className="text-[12px] font-medium text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
+            <span className="text-[12px] font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">
               {data.studentsWithBalance} Students
             </span>
             <span className="text-[12px] text-slate-600 font-medium">Have remaining balances</span>
@@ -205,7 +205,7 @@ export default async function StaffDashboardPage() {
             <CurrencyDisplay amount={data.totalPaid} />
           </p>
           <div className="flex items-center gap-2 mt-auto">
-            <span className="text-[12px] font-medium text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+            <span className="text-[12px] font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/30 px-2 py-0.5 rounded">
               {collectionRate.toFixed(1)}%
             </span>
             <span className="text-[12px] text-slate-600 font-medium">Of assigned fees collected</span>
@@ -224,11 +224,11 @@ export default async function StaffDashboardPage() {
           </p>
           <div className="flex items-center gap-2 mt-auto">
             {pendingActionsCount > 0 ? (
-               <span className="text-[12px] font-medium text-amber-700 bg-amber-50 px-2 py-0.5 rounded">
+               <span className="text-[12px] font-medium text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/30 px-2 py-0.5 rounded">
                  Requires Review
                </span>
             ) : (
-               <span className="text-[12px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
+               <span className="text-[12px] font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded">
                  All Clear
                </span>
             )}
@@ -269,8 +269,8 @@ export default async function StaffDashboardPage() {
             </div>
 
             {/* Premium Horizontal Progress */}
-            <div className="w-full h-4 bg-slate-100 rounded-full overflow-hidden flex shadow-inner">
-               <div className="bg-slate-900 h-full rounded-full relative z-10 transition-all duration-700 ease-out" style={{ width: `${collectionRate}%` }} />
+            <div className="w-full h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden flex shadow-inner">
+               <div className="bg-slate-900 dark:bg-white h-full rounded-full relative z-10 transition-all duration-700 ease-out" style={{ width: `${collectionRate}%` }} />
             </div>
             
             <div className="flex justify-between items-center mt-3 text-[13px]">
@@ -459,8 +459,8 @@ export default async function StaffDashboardPage() {
                 const initials = sub.student.fullName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
                 return (
                   <div key={sub.id} className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-200/60">
-                      <span className="text-[11px] font-semibold text-slate-600">{initials}</span>
+                    <div className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5 border border-slate-200/60 dark:border-slate-700/60">
+                      <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">{initials}</span>
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-[14px] font-medium text-slate-900 truncate">{sub.student.fullName}</p>
@@ -468,7 +468,7 @@ export default async function StaffDashboardPage() {
                       <div className="flex items-center gap-2 mt-1">
                         <span className="text-[11px] text-slate-600">{formatDateTime(sub.submittedAt)}</span>
                         {sub.isLate && (
-                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-red-50 text-red-600">Late</span>
+                          <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400">Late</span>
                         )}
                       </div>
                     </div>

@@ -153,12 +153,12 @@ export default async function FeesPage({
         </div>
 
         {/* Global Collection Progress Bar */}
-        <div className="px-6 py-4 border-t border-slate-200/50" style={{ background: 'rgba(241,245,249,0.60)' }}>
+        <div className="px-6 py-4 border-t border-slate-200/50 bg-slate-100/60 dark:bg-slate-900/40">
           <div className="flex items-center justify-between text-sm mb-2">
-            <span className="font-medium text-slate-700">Collection Progress</span>
-            <span className="font-medium text-slate-900">{collectionRate.toFixed(1)}%</span>
+            <span className="font-medium text-slate-700 dark:text-slate-300">Collection Progress</span>
+            <span className="font-medium text-slate-900 dark:text-white">{collectionRate.toFixed(1)}%</span>
           </div>
-          <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden flex">
+          <div className="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden flex">
             <div 
               className="h-full bg-emerald-500 transition-all duration-500" 
               style={{ width: `${collectionRate}%` }}
@@ -248,18 +248,18 @@ export default async function FeesPage({
           </div>
 
           {overdueCount > 0 && (
-            <div className="bg-red-50 border border-red-200 rounded-xl p-5 shadow-sm flex items-center justify-between">
+            <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30 rounded-xl p-5 shadow-sm flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-semibold text-red-900 mb-1 flex items-center gap-2">
+                <h3 className="text-sm font-semibold text-red-900 dark:text-red-400 mb-1 flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" />
                   Attention Required
                 </h3>
-                <p className="text-sm text-red-700">
+                <p className="text-sm text-red-700 dark:text-red-300">
                   {overdueCount} {overdueCount === 1 ? 'student has' : 'students have'} <span className="font-semibold"><CurrencyDisplay amount={totalOverdueAmount} size="sm" /></span> in overdue balances.
                 </p>
               </div>
               <Link href="/staff/fees?filter=overdue">
-                <Button size="sm" variant="outline" className="bg-white border-red-200 text-red-700 hover:bg-red-50">
+                <Button size="sm" variant="outline" className="bg-white dark:bg-slate-900 border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30">
                   View Overdue →
                 </Button>
               </Link>

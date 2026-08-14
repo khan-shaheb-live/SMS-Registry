@@ -102,7 +102,7 @@ export function AssignFeeDialog({
             
             <div className="space-y-1.5">
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-700">£</span>
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-700 dark:text-slate-300 z-10">£</span>
                 <Input
                   id="amount"
                   name="amount"

@@ -17,7 +17,7 @@ export default async function ProfilePage() {
   if (!student) return null
 
   return (
-    <div className="space-y-6 max-w-3xl mx-auto pb-10">
+    <div className="space-y-6 w-full pb-10">
       <div>
         <h1 className="text-[28px] sm:text-[30px] font-semibold text-[#0F172A] tracking-tight">
           My Profile

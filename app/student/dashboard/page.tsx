@@ -61,7 +61,7 @@ export default async function StudentDashboardPage() {
   const progressPercentage = totalAssessments > 0 ? Math.round((completedAssessments / totalAssessments) * 100) : 0
 
   return (
-    <div className="space-y-8 pb-10 max-w-5xl mx-auto">
+    <div className="space-y-8 pb-10 w-full">
       {/* 1. HERO / GREETING SECTION */}
       <div>
         <h1 className="text-[28px] sm:text-[30px] font-semibold text-[#0F172A] tracking-tight">

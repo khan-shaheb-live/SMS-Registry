@@ -44,15 +44,15 @@ export default async function ResultsPage({
       {/* Summary */}
       <div className="grid sm:grid-cols-3 gap-4">
         <Link href="/staff/results?filter=ungraded">
-          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 text-center cursor-pointer hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 ${totalUngraded > 0 ? 'bg-amber-50/80 border-amber-200/70' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
+          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 text-center cursor-pointer hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 ${totalUngraded > 0 ? 'bg-amber-50/80 dark:bg-amber-950/20 border-amber-200/70 dark:border-amber-900/30' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
             <p className="text-xs text-slate-600">Needs Grading</p>
-            <p className={`text-2xl font-bold ${totalUngraded > 0 ? 'text-amber-600' : 'text-slate-900'}`}>{totalUngraded}</p>
+            <p className={`text-2xl font-bold ${totalUngraded > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-900 dark:text-white'}`}>{totalUngraded}</p>
           </div>
         </Link>
         <Link href="/staff/results?filter=unpublished">
-          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 text-center cursor-pointer hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 ${totalUnpublished > 0 ? 'bg-purple-50/80 border-purple-200/70' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
+          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 text-center cursor-pointer hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 ${totalUnpublished > 0 ? 'bg-purple-50/80 dark:bg-purple-950/20 border-purple-200/70 dark:border-purple-900/30' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
             <p className="text-xs text-slate-600">Ready to Publish</p>
-            <p className={`text-2xl font-bold ${totalUnpublished > 0 ? 'text-purple-600' : 'text-slate-900'}`}>{totalUnpublished}</p>
+            <p className={`text-2xl font-bold ${totalUnpublished > 0 ? 'text-purple-600 dark:text-purple-400' : 'text-slate-900 dark:text-white'}`}>{totalUnpublished}</p>
           </div>
         </Link>
         <Link href="/staff/results">
@@ -64,10 +64,10 @@ export default async function ResultsPage({
       </div>
 
       {filter === 'unpublished' && totalUnpublished > 0 && (
-        <div className="flex items-center justify-between bg-purple-50 border border-purple-200 rounded-lg px-4 py-2.5">
+        <div className="flex items-center justify-between bg-purple-50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-900/30 rounded-lg px-4 py-2.5">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-purple-600" />
-            <p className="text-sm text-purple-700">
+            <AlertTriangle className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+            <p className="text-sm text-purple-700 dark:text-purple-300">
               Showing grades awaiting publication. <Link href="/staff/results" className="underline">Show all</Link>
             </p>
           </div>
@@ -82,7 +82,7 @@ export default async function ResultsPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 bg-slate-100/70 dark:bg-slate-900/50">
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Student</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Assessment</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden md:table-cell">Module</th>

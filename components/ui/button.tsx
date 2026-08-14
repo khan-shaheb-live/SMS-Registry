@@ -10,19 +10,19 @@ const buttonVariants = cva(
       variant: {
         // Premium dark solid — primary action
         default:
-          "bg-slate-900 text-white shadow-sm hover:bg-slate-800 hover:shadow-[0_4px_14px_rgba(15,23,42,0.25)] rounded-[12px]",
+          "bg-slate-900 text-white shadow-sm hover:bg-slate-800 hover:shadow-[0_4px_14px_rgba(15,23,42,0.25)] rounded-[12px] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100",
         // Red glass — destructive action
         destructive:
-          "bg-red-500/90 text-white backdrop-blur-sm shadow-[0_2px_8px_rgba(239,68,68,0.20)] hover:bg-red-600 rounded-[12px]",
+          "bg-red-500/90 text-white backdrop-blur-sm shadow-[0_2px_8px_rgba(239,68,68,0.20)] hover:bg-red-600 rounded-[12px] dark:bg-red-600/90 dark:hover:bg-red-600",
         // Glass outline — secondary action
         outline:
-          "border border-slate-200/80 bg-white/60 backdrop-blur-[12px] text-slate-700 shadow-[0_1px_4px_rgba(15,23,42,0.05)] hover:bg-white/85 hover:border-slate-300/80 hover:shadow-[0_2px_8px_rgba(15,23,42,0.08)] rounded-[12px]",
+          "border border-slate-200/80 bg-white/60 backdrop-blur-[12px] text-slate-700 shadow-[0_1px_4px_rgba(15,23,42,0.05)] hover:bg-white/85 hover:border-slate-300/80 hover:shadow-[0_2px_8px_rgba(15,23,42,0.08)] rounded-[12px] dark:bg-slate-950/40 dark:border-slate-800/80 dark:text-slate-300 dark:hover:bg-slate-900/60 dark:hover:text-white",
         // Light glass secondary
         secondary:
-          "bg-slate-100/80 text-slate-700 backdrop-blur-sm hover:bg-slate-200/80 rounded-[12px]",
+          "bg-slate-100/80 text-slate-700 backdrop-blur-sm hover:bg-slate-200/80 rounded-[12px] dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800",
         // Transparent ghost
         ghost:
-          "text-slate-600 hover:bg-white/55 hover:backdrop-blur-sm hover:text-slate-900 rounded-[12px]",
+          "text-slate-600 hover:bg-white/55 hover:backdrop-blur-sm hover:text-slate-900 rounded-[12px] dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

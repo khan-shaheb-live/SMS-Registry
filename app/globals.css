@@ -195,3 +195,207 @@
     border-bottom: 1px solid rgba(226, 232, 240, 0.70);
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL THEME OVERRIDES (Minimal & Dark Modes)
+   ═══════════════════════════════════════════════════ */
+
+/* ── Minimal Theme Overrides ── */
+.theme-minimal .glass-card,
+.theme-minimal .glass-card-heavy,
+.theme-minimal [class*="bg-white/70"],
+.theme-minimal [class*="bg-white/75"],
+.theme-minimal [class*="bg-white/78"],
+.theme-minimal [class*="bg-white/50"] {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05) !important;
+}
+
+.theme-minimal .glass-surface {
+  background: #f8fafc !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-minimal .glass-popover {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1) !important;
+}
+
+.theme-minimal .input-glass {
+  background: #ffffff !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-minimal .input-glass:focus {
+  border-color: hsl(222, 83%, 50%) !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+}
+
+.theme-minimal body {
+  background-image: none !important;
+  background-color: #f8fafc !important;
+}
+
+/* ── Dark Mode Overrides (Glassmorphic Dark) ── */
+.dark body {
+  background-color: #030712 !important;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 55%), 
+    radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 55%), 
+    radial-gradient(at 50% 100%, rgba(20, 184, 166, 0.12) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(59, 130, 246, 0.10) 0px, transparent 40%) !important;
+  color: #f1f5f9 !important;
+}
+
+.dark .glass-card,
+.dark [class*="bg-white/70"],
+.dark [class*="bg-white/75"],
+.dark [class*="bg-white/78"] {
+  background: rgba(15, 23, 42, 0.72) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-color: rgba(51, 65, 85, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .glass-card-heavy {
+  background: rgba(15, 23, 42, 0.85) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border-color: rgba(51, 65, 85, 0.5) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.dark .glass-surface {
+  background: rgba(15, 23, 42, 0.4) !important;
+  border-color: rgba(51, 65, 85, 0.3) !important;
+}
+
+.dark .glass-popover {
+  background: rgba(15, 23, 42, 0.94) !important;
+  border-color: rgba(51, 65, 85, 0.45) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .input-glass {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border-color: rgba(51, 65, 85, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.dark .input-glass:focus {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-color: hsl(222, 83%, 50%) !important;
+}
+
+/* Core typography overrides in dark mode */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #ffffff !important;
+}
+
+.dark p {
+  color: #cbd5e1 !important;
+}
+
+.dark label {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-700 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+/* Page structural elements */
+.dark .bg-slate-50,
+.dark [class*="bg-slate-50"] {
+  background-color: rgba(30, 41, 59, 0.4) !important;
+  border-color: rgba(51, 65, 85, 0.35) !important;
+}
+
+.dark .bg-white,
+.dark [class*="bg-white/50"] {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+  border-color: rgba(51, 65, 85, 0.3) !important;
+}
+
+.dark .border-slate-100, 
+.dark .border-slate-200, 
+.dark .border-[#E2E8F0] {
+  border-color: rgba(51, 65, 85, 0.35) !important;
+}
+
+.dark .text-[#0F172A] {
+  color: #f8fafc !important;
+}
+
+.dark .text-[#64748B] {
+  color: #cbd5e1 !important;
+}
+
+/* Tables, headers, inputs */
+.dark table th {
+  background-color: rgba(30, 41, 59, 0.6) !important;
+  color: #f1f5f9 !important;
+  border-color: rgba(51, 65, 85, 0.4) !important;
+}
+
+.dark table td {
+  color: #cbd5e1 !important;
+}
+
+.dark input, 
+.dark select, 
+.dark textarea {
+  background-color: rgba(15, 23, 42, 0.7) !important;
+  border-color: rgba(51, 65, 85, 0.45) !important;
+  color: #ffffff !important;
+}
+
+.dark header {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-color: rgba(51, 65, 85, 0.4) !important;
+}
+
+.dark .sidebar-active-link {
+  background-color: #ffffff !important;
+  color: #020617 !important;
+}
+
+.dark .sidebar-active-link svg {
+  color: #020617 !important;
+}
+
+.dark input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8) brightness(1.2);
+}
+

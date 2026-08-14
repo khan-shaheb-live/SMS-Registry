@@ -35,7 +35,7 @@ export default async function StudentAssessmentDetailPage({ params }: { params: 
   const isLate = !submission && isSubmissionLate(new Date(), assessment.deadline)
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto pb-10">
+    <div className="space-y-6 w-full pb-10">
       <Link href="/student/assessments" className="inline-flex items-center gap-2 text-[14px] text-[#64748B] hover:text-[#0F172A] transition-colors mb-2">
         <ArrowLeft className="w-4 h-4" />
         Back to Assessments

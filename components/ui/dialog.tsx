@@ -37,8 +37,8 @@ const DialogContent = React.forwardRef<
       className={cn(
         "fixed left-[50%] top-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 p-6",
         // Glass modal surface
-        "bg-white/90 backdrop-blur-[28px] [-webkit-backdrop-filter:blur(28px)]",
-        "border border-white/70",
+        "bg-white/90 backdrop-blur-[28px] [-webkit-backdrop-filter:blur(28px)] dark:bg-slate-950/90",
+        "border border-white/70 dark:border-slate-800/80",
         "rounded-[22px]",
         "shadow-[0_24px_80px_rgba(15,23,42,0.16),0_6px_20px_rgba(15,23,42,0.08)]",
         // Animations
@@ -53,7 +53,7 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogClose className="absolute right-4 top-4 rounded-[8px] p-1.5 text-slate-600 hover:text-slate-700 hover:bg-slate-100/70 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 disabled:pointer-events-none">
+      <DialogClose className="absolute right-4 top-4 rounded-[8px] p-1.5 text-slate-600 hover:text-slate-700 hover:bg-slate-100/70 dark:text-slate-400 dark:hover:text-white dark:hover:bg-white/10 transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 disabled:pointer-events-none">
         <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </DialogClose>

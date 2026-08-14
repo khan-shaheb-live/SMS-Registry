@@ -44,21 +44,21 @@ export default async function SubmissionsPage({
           </div>
         </Link>
         <Link href="/staff/submissions?filter=late">
-          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer ${totalLate > 0 ? 'bg-red-50/80 border-red-200/70' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
+          <div className={`backdrop-blur-[20px] border rounded-[20px] p-4 hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer ${totalLate > 0 ? 'bg-red-50/80 dark:bg-red-950/20 border-red-200/70 dark:border-red-900/30' : 'bg-white/70 border-white/65 shadow-[0_2px_12px_rgba(15,23,42,0.03)]'}`}>
             <p className="text-xs text-slate-600">Late Submissions</p>
-            <p className={`text-2xl font-bold ${totalLate > 0 ? 'text-red-600' : 'text-slate-900'}`}>{totalLate}</p>
+            <p className={`text-2xl font-bold ${totalLate > 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-900 dark:text-white'}`}>{totalLate}</p>
           </div>
         </Link>
         <div className="bg-white/78 backdrop-blur-[24px] border border-white/70 rounded-[20px] p-4 shadow-[0_2px_12px_rgba(15,23,42,0.03)]">
           <p className="text-xs text-slate-600">Awaiting Grade</p>
-          <p className={`text-2xl font-bold ${totalUngraded > 0 ? 'text-amber-600' : 'text-slate-900'}`}>{totalUngraded}</p>
+          <p className={`text-2xl font-bold ${totalUngraded > 0 ? 'text-amber-600 dark:text-amber-400' : 'text-slate-900 dark:text-white'}`}>{totalUngraded}</p>
         </div>
       </div>
 
       {filter === 'late' && totalLate > 0 && (
-        <div className="flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-4 py-2.5">
-          <AlertTriangle className="w-4 h-4 text-red-600" />
-          <p className="text-sm text-red-700">
+        <div className="flex items-center gap-2 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900/30 rounded-lg px-4 py-2.5">
+          <AlertTriangle className="w-4 h-4 text-red-600 dark:text-red-400" />
+          <p className="text-sm text-red-700 dark:text-red-300">
             Showing late submissions only. <Link href="/staff/submissions" className="underline">Show all</Link>
           </p>
         </div>
