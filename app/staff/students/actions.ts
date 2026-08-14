@@ -6,6 +6,7 @@ import { prisma } from '@/lib/db'
 import { generateStudentId } from '@/lib/business/students'
 import { createStudentSchema, updateStudentSchema } from '@/lib/validations/student'
 import { requireStaffSession } from '@/lib/session'
+import { hashPassword } from '@/lib/auth/password'
 
 export async function createStudentAction(formData: FormData) {
   await requireStaffSession()
@@ -54,6 +55,7 @@ export async function createStudentAction(formData: FormData) {
         email: parsed.data.email,
         role: 'STUDENT',
         studentId: student.id,
+        password: hashPassword('password123'),
       },
     })
 

@@ -1,5 +1,6 @@
 import { PrismaClient, StudentStatus, ProgrammeStatus, GradeClassification } from '@prisma/client'
 import { Decimal } from '@prisma/client/runtime/library'
+import { hashPassword } from '../lib/auth/password'
 
 const prisma = new PrismaClient()
 
@@ -45,10 +46,13 @@ async function main() {
   console.log('✅ Programmes created')
 
   // ── Staff user ───────────────────────────────────────────────────────────
+  const hashedPassword = hashPassword('password123')
+
   await prisma.user.create({
     data: {
       email: 'staff@university.ac.uk',
       role: 'STAFF',
+      password: hashedPassword,
     },
   })
 
@@ -136,12 +140,12 @@ async function main() {
   // ── User accounts for students ───────────────────────────────────────────
   await prisma.user.createMany({
     data: [
-      { email: alice.email, role: 'STUDENT', studentId: alice.id },
-      { email: bob.email, role: 'STUDENT', studentId: bob.id },
-      { email: carol.email, role: 'STUDENT', studentId: carol.id },
-      { email: david.email, role: 'STUDENT', studentId: david.id },
-      { email: emma.email, role: 'STUDENT', studentId: emma.id },
-      { email: james.email, role: 'STUDENT', studentId: james.id },
+      { email: alice.email, role: 'STUDENT', studentId: alice.id, password: hashedPassword },
+      { email: bob.email, role: 'STUDENT', studentId: bob.id, password: hashedPassword },
+      { email: carol.email, role: 'STUDENT', studentId: carol.id, password: hashedPassword },
+      { email: david.email, role: 'STUDENT', studentId: david.id, password: hashedPassword },
+      { email: emma.email, role: 'STUDENT', studentId: emma.id, password: hashedPassword },
+      { email: james.email, role: 'STUDENT', studentId: james.id, password: hashedPassword },
     ],
   })
 

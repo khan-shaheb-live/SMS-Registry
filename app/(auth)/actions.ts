@@ -4,12 +4,18 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/db'
 import { createSessionToken } from '@/lib/session'
+import { verifyPassword } from '@/lib/auth/password'
 
 export async function loginAction(formData: FormData) {
   const email = formData.get('email') as string
+  const password = formData.get('password') as string
   
   if (!email) {
-    return { error: 'Please select a user to continue' }
+    return { error: 'Please enter an email' }
+  }
+
+  if (!password) {
+    return { error: 'Please enter a password' }
   }
 
   const user = await prisma.user.findUnique({
@@ -22,7 +28,12 @@ export async function loginAction(formData: FormData) {
   })
 
   if (!user) {
-    return { error: 'User not found. Please ensure the database is seeded.' }
+    return { error: 'Invalid email or password' }
+  }
+
+  const isPasswordValid = verifyPassword(password, user.password)
+  if (!isPasswordValid) {
+    return { error: 'Invalid email or password' }
   }
 
   const token = createSessionToken(user.id, user.email)

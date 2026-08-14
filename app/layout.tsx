@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     template: '%s | SMS Registry',
   },
   description: 'Student Management System — Registry Module for the University of Greenfield',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({

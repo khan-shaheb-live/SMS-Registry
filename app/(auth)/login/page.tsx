@@ -34,15 +34,6 @@ export default async function LoginPage() {
           <p className="text-slate-700 text-sm mt-1">University of Greenfield</p>
         </div>
 
-        {/* Demo Notice */}
-        <div className="bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-6 text-sm text-center">
-          <p className="font-semibold text-amber-800">Assessment / Demo Mode</p>
-          <p className="text-amber-700 mt-0.5">
-            Select any user below to explore the system. No password required.
-            In production, this would use secure authentication.
-          </p>
-        </div>
-
         <LoginForm staffUsers={staffUsers} studentUsers={studentUsers} />
 
         <p className="text-center text-xs text-slate-600 mt-8">

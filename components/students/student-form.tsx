@@ -183,6 +183,12 @@ export function StudentForm({ programmes, student }: StudentFormProps) {
             </div>
           </div>
 
+          {!isEditing && (
+            <div className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 rounded-xl px-4 py-3 text-xs text-blue-700 dark:text-blue-300">
+              💡 <strong>Automatic User Account:</strong> A student portal user account will be automatically generated with the default password: <strong className="font-mono bg-blue-100 dark:bg-blue-950/40 px-1 py-0.5 rounded">password123</strong>.
+            </div>
+          )}
+
           <div className="flex items-center gap-3 pt-2">
             <Button type="submit" disabled={isLoading || !programmeId} className="gap-2">
               {isLoading && <Loader2 className="w-4 h-4 animate-spin" />}
