@@ -160,8 +160,8 @@ export default async function StaffDashboardPage() {
         
         <div className={cardBase}>
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
-              <Users className="w-5 h-5 text-slate-600" />
+            <div className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800/80">
+              <Users className="w-5 h-5 text-slate-600 dark:text-slate-400" />
             </div>
           </div>
           <p className="text-[14px] font-medium text-slate-700 mb-1">Total Students</p>
@@ -178,8 +178,8 @@ export default async function StaffDashboardPage() {
 
         <div className={cardBase}>
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
-              <CreditCard className="w-5 h-5 text-slate-600" />
+            <div className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800/80">
+              <CreditCard className="w-5 h-5 text-slate-600 dark:text-slate-400" />
             </div>
           </div>
           <p className="text-[14px] font-medium text-slate-700 mb-1">Outstanding Balance</p>
@@ -196,8 +196,8 @@ export default async function StaffDashboardPage() {
 
         <div className={cardBase}>
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center border border-slate-100">
-              <TrendingUp className="w-5 h-5 text-slate-600" />
+            <div className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800/80">
+              <TrendingUp className="w-5 h-5 text-slate-600 dark:text-slate-400" />
             </div>
           </div>
           <p className="text-[14px] font-medium text-slate-700 mb-1">Payments Received</p>
@@ -214,8 +214,8 @@ export default async function StaffDashboardPage() {
 
         <div className={cardBase}>
           <div className="flex justify-between items-start mb-4">
-            <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center border border-amber-100">
-              <AlertCircle className="w-5 h-5 text-amber-600" />
+            <div className="w-10 h-10 rounded-full bg-amber-50 dark:bg-amber-950/30 flex items-center justify-center border border-amber-100 dark:border-amber-900/40">
+              <AlertCircle className="w-5 h-5 text-amber-600 dark:text-amber-400" />
             </div>
           </div>
           <p className="text-[14px] font-medium text-slate-700 mb-1">Pending Actions</p>
@@ -345,14 +345,14 @@ export default async function StaffDashboardPage() {
             ) : (
               <>
                 {data.overdueStudents > 0 && (
-                  <Link href="/staff/fees?filter=overdue" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/30 transition-colors duration-100">
+                  <Link href="/staff/fees?filter=overdue" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/20 dark:hover:bg-slate-900/40 transition-colors duration-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-red-50 text-red-600 flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 flex items-center justify-center flex-shrink-0">
                         <AlertTriangle className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[14px] font-medium text-slate-900">Overdue balances</p>
-                        <p className="text-[13px] text-slate-700">{data.overdueStudents} student{data.overdueStudents !== 1 ? 's' : ''} require follow-up</p>
+                        <p className="text-[14px] font-medium text-slate-900 dark:text-slate-100">Overdue balances</p>
+                        <p className="text-[13px] text-slate-700 dark:text-slate-300">{data.overdueStudents} student{data.overdueStudents !== 1 ? 's' : ''} require follow-up</p>
                       </div>
                     </div>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-red-500 group-hover:translate-x-0.5 transition-all" />
@@ -360,14 +360,14 @@ export default async function StaffDashboardPage() {
                 )}
                 
                 {data.lateSubmissions > 0 && (
-                  <Link href="/staff/submissions?filter=late" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/30 transition-colors duration-100">
+                  <Link href="/staff/submissions?filter=late" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/20 dark:hover:bg-slate-900/40 transition-colors duration-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400 flex items-center justify-center flex-shrink-0">
                         <Clock className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[14px] font-medium text-slate-900">Late submissions</p>
-                        <p className="text-[13px] text-slate-700">{data.lateSubmissions} submission{data.lateSubmissions !== 1 ? 's' : ''} received late</p>
+                        <p className="text-[14px] font-medium text-slate-900 dark:text-slate-100">Late submissions</p>
+                        <p className="text-[13px] text-slate-700 dark:text-slate-300">{data.lateSubmissions} submission{data.lateSubmissions !== 1 ? 's' : ''} received late</p>
                       </div>
                     </div>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-amber-500 group-hover:translate-x-0.5 transition-all" />
@@ -375,14 +375,14 @@ export default async function StaffDashboardPage() {
                 )}
                 
                 {data.unpublishedGrades > 0 && (
-                  <Link href="/staff/results?filter=unpublished" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/30 transition-colors duration-100">
+                  <Link href="/staff/results?filter=unpublished" className="group flex items-center justify-between p-3 -mx-3 rounded-[12px] hover:bg-indigo-50/20 dark:hover:bg-slate-900/40 transition-colors duration-100">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-violet-50 text-violet-600 flex items-center justify-center flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-violet-50 dark:bg-violet-950/30 text-violet-600 dark:text-violet-400 flex items-center justify-center flex-shrink-0">
                         <BarChart3 className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-[14px] font-medium text-slate-900">Pending results</p>
-                        <p className="text-[13px] text-slate-700">{data.unpublishedGrades} result{data.unpublishedGrades !== 1 ? 's' : ''} awaiting publication</p>
+                        <p className="text-[14px] font-medium text-slate-900 dark:text-slate-100">Pending results</p>
+                        <p className="text-[13px] text-slate-700 dark:text-slate-300">{data.unpublishedGrades} result{data.unpublishedGrades !== 1 ? 's' : ''} awaiting publication</p>
                       </div>
                     </div>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-violet-500 group-hover:translate-x-0.5 transition-all" />

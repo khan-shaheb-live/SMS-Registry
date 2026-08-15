@@ -39,14 +39,14 @@ export default async function StudentSubmissionsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-[14px]">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                   <th className="text-left px-6 py-4 font-medium text-[#64748B]">Assessment</th>
                   <th className="text-left px-6 py-4 font-medium text-[#64748B] hidden sm:table-cell">Submitted At</th>
                   <th className="text-left px-6 py-4 font-medium text-[#64748B]">Status</th>
                   <th className="text-left px-6 py-4 font-medium text-[#64748B] hidden md:table-cell">File Name</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-[#E2E8F0] dark:divide-slate-800/60">
                 {submissions.map((sub) => (
                   <tr key={sub.id} className="hover:bg-indigo-50/20 transition-colors duration-100 group">
                     <td className="px-6 py-5">
@@ -60,13 +60,13 @@ export default async function StudentSubmissionsPage() {
                       {sub.isLate ? (
                         <LateBadge />
                       ) : (
-                        <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#059669] bg-[#ECFDF5] px-2.5 py-1 rounded-md border border-emerald-100/50 uppercase tracking-wider">
+                        <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#059669] dark:text-emerald-400 bg-[#ECFDF5] dark:bg-emerald-950/40 px-2.5 py-1 rounded-md border border-emerald-100/50 dark:border-emerald-900/30 uppercase tracking-wider">
                           <CheckCircle2 className="w-3.5 h-3.5" /> On time
                         </span>
                       )}
                     </td>
                     <td className="px-6 py-5 text-[13px] text-[#64748B] hidden md:table-cell">
-                      <span className="truncate block max-w-[200px] font-mono text-[12px] bg-white/60 backdrop-blur-sm px-2 py-0.5 rounded border border-slate-200/60" title={sub.fileName ?? undefined}>
+                      <span className="truncate block max-w-[200px] font-mono text-[12px] bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm px-2 py-0.5 rounded border border-slate-200/60 dark:border-slate-800/60" title={sub.fileName ?? undefined}>
 
                         {sub.fileName}
                       </span>

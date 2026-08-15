@@ -140,7 +140,7 @@ export default async function FeesPage({
           </div>
 
           {/* Card 4: Overdue */}
-          <div className="p-6 bg-slate-50/50">
+          <div className="p-6 bg-slate-50/50 dark:bg-slate-900/40">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-medium text-slate-700">Overdue</h3>
               <AlertTriangle className="w-4 h-4 text-red-500" />
@@ -153,7 +153,7 @@ export default async function FeesPage({
         </div>
 
         {/* Global Collection Progress Bar */}
-        <div className="px-6 py-4 border-t border-slate-200/50 bg-slate-100/60 dark:bg-slate-900/40">
+        <div className="px-6 py-4 border-t border-slate-200/50 dark:border-slate-800/60 bg-slate-100/60 dark:bg-slate-900/40">
           <div className="flex items-center justify-between text-sm mb-2">
             <span className="font-medium text-slate-700 dark:text-slate-300">Collection Progress</span>
             <span className="font-medium text-slate-900 dark:text-white">{collectionRate.toFixed(1)}%</span>
@@ -175,7 +175,7 @@ export default async function FeesPage({
           <div>
             <h3 className="text-base font-semibold text-slate-900 mb-6">Financial Health</h3>
             <div className="space-y-5">
-              <div className="flex items-center justify-between p-3 rounded-[12px] bg-slate-50/80 border border-slate-100/80">
+              <div className="flex items-center justify-between p-3 rounded-[12px] bg-slate-50/80 dark:bg-slate-900/40 border border-slate-100/80 dark:border-slate-800/60">
                 <span className="text-sm text-slate-600">Collection Rate</span>
                 <div className="text-right">
                   <span className="text-lg font-semibold text-emerald-600 block">{collectionRate.toFixed(1)}%</span>
@@ -280,8 +280,8 @@ export default async function FeesPage({
               href={buildUrl('all')}
               className={`flex-1 sm:flex-none px-4 py-1.5 text-sm font-medium rounded-[8px] whitespace-nowrap transition-all duration-150 ${
                 filter === 'all' 
-                  ? 'bg-slate-900 text-white shadow-sm' 
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-sm' 
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'
               }`}
             >
               All Records
@@ -290,8 +290,8 @@ export default async function FeesPage({
               href={buildUrl('paid')}
               className={`flex-1 sm:flex-none px-4 py-1.5 text-sm font-medium rounded-[8px] whitespace-nowrap transition-all duration-150 ${
                 filter === 'paid' 
-                  ? 'bg-slate-900 text-white shadow-sm' 
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-sm' 
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'
               }`}
             >
               Paid
@@ -300,8 +300,8 @@ export default async function FeesPage({
               href={buildUrl('outstanding')}
               className={`flex-1 sm:flex-none px-4 py-1.5 text-sm font-medium rounded-[8px] whitespace-nowrap transition-all duration-150 ${
                 filter === 'outstanding' 
-                  ? 'bg-slate-900 text-white shadow-sm' 
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-sm' 
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'
               }`}
             >
               Outstanding
@@ -310,8 +310,8 @@ export default async function FeesPage({
               href={buildUrl('overdue')}
               className={`flex-1 sm:flex-none px-4 py-1.5 text-sm font-medium rounded-[8px] whitespace-nowrap transition-all duration-150 ${
                 filter === 'overdue' 
-                  ? 'bg-slate-900 text-white shadow-sm' 
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 shadow-sm' 
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'
               }`}
             >
               Overdue
@@ -327,7 +327,7 @@ export default async function FeesPage({
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                  <tr className="border-b border-slate-200/70 dark:border-slate-800/60 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                     <th className="text-left px-4 py-3.5 font-medium text-slate-600">Student</th>
                     <th className="text-left px-4 py-3.5 font-medium text-slate-600 hidden md:table-cell">Programme</th>
                     <th className="text-right px-4 py-3.5 font-medium text-slate-600">Total Fee</th>
@@ -338,7 +338,7 @@ export default async function FeesPage({
                     <th className="text-right px-4 py-3.5 font-medium text-slate-600">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                   {filtered.map((s) => {
                     const studentFeeAmount = s.fee ? parseFloat(s.fee.amount.toString()) : 0
                     const studentCollectionRate = studentFeeAmount > 0 ? (s.totalPaid / studentFeeAmount) * 100 : 0
@@ -361,7 +361,7 @@ export default async function FeesPage({
                           <div className="flex flex-col items-end gap-1.5">
                             <CurrencyDisplay amount={s.totalPaid} className="text-emerald-600 font-medium" />
                             {studentFeeAmount > 0 && (
-                              <div className="w-16 h-1 bg-slate-100 rounded-full overflow-hidden flex">
+                              <div className="w-16 h-1 bg-slate-100 dark:bg-slate-950/60 rounded-full overflow-hidden flex">
                                 <div 
                                   className="h-full bg-emerald-500 transition-all" 
                                   style={{ width: `${Math.min(studentCollectionRate, 100)}%` }}

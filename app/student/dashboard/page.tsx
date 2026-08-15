@@ -102,72 +102,72 @@ export default async function StudentDashboardPage() {
       {/* 2. REDESIGNED KPI CARDS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1 — Programme */}
-        <div className="bg-[#ECFDF5] rounded-[20px] p-[20px] sm:p-[24px] border border-emerald-100/50 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-[#ECFDF5] dark:bg-emerald-950/20 rounded-[20px] p-[20px] sm:p-[24px] border border-emerald-100/50 dark:border-emerald-900/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between">
-            <div className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-[#10B981]">
+            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-[#10B981] dark:text-emerald-400">
               <BookOpen className="w-5 h-5" />
             </div>
           </div>
           <div className="mt-4">
-            <p className="text-[13px] font-medium text-emerald-800/70 mb-1">Programme</p>
-            <h3 className="text-[24px] font-bold text-emerald-900 leading-none">{student.programme.code}</h3>
+            <p className="text-[13px] font-medium text-emerald-800/70 dark:text-emerald-400/70 mb-1">Programme</p>
+            <h3 className="text-[24px] font-bold text-emerald-900 dark:text-emerald-300 leading-none">{student.programme.code}</h3>
           </div>
         </div>
 
         {/* Card 2 — Outstanding Fees */}
-        <div className="bg-[#EFF6FF] rounded-[20px] p-[20px] sm:p-[24px] border border-blue-100/50 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-[#EFF6FF] dark:bg-blue-950/20 rounded-[20px] p-[20px] sm:p-[24px] border border-blue-100/50 dark:border-blue-900/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between">
-            <div className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-[#2563EB]">
+            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-[#2563EB] dark:text-blue-400">
               <CreditCard className="w-5 h-5" />
             </div>
             {outstanding === 0 && (
-              <span className="inline-flex items-center gap-1 text-[12px] font-medium text-blue-700 bg-blue-100/50 px-2 py-1 rounded-md">
+              <span className="inline-flex items-center gap-1 text-[12px] font-medium text-blue-700 dark:text-blue-300 bg-blue-100/50 dark:bg-blue-950/40 px-2 py-1 rounded-md">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 Paid in full
               </span>
             )}
           </div>
           <div className="mt-4">
-            <p className="text-[13px] font-medium text-blue-800/70 mb-1">Outstanding Fees</p>
-            <h3 className="text-[24px] font-bold text-blue-900 leading-none">
+            <p className="text-[13px] font-medium text-blue-800/70 dark:text-blue-400/70 mb-1">Outstanding Fees</p>
+            <h3 className="text-[24px] font-bold text-blue-900 dark:text-blue-300 leading-none">
               £{outstanding.toLocaleString(undefined, { minimumFractionDigits: 2 })}
             </h3>
           </div>
         </div>
 
         {/* Card 3 — Upcoming Due */}
-        <div className="bg-[#F5F3FF] rounded-[20px] p-[20px] sm:p-[24px] border border-purple-100/50 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-[#F5F3FF] dark:bg-purple-950/20 rounded-[20px] p-[20px] sm:p-[24px] border border-purple-100/50 dark:border-purple-900/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between">
-            <div className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-[#8B5CF6]">
+            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-[#8B5CF6] dark:text-purple-400">
               <ClipboardList className="w-5 h-5" />
             </div>
             {upcomingAssessments.length > 0 && (
-              <span className="inline-flex text-[12px] font-medium text-purple-700 bg-purple-100/50 px-2 py-1 rounded-md">
+              <span className="inline-flex text-[12px] font-medium text-purple-700 dark:text-purple-300 bg-purple-100/50 dark:bg-purple-950/40 px-2 py-1 rounded-md">
                 {upcomingAssessments.length} pending
               </span>
             )}
           </div>
           <div className="mt-4">
-            <p className="text-[13px] font-medium text-purple-800/70 mb-1">Upcoming Due</p>
-            <h3 className="text-[24px] font-bold text-purple-900 leading-none">{upcomingAssessments.length}</h3>
+            <p className="text-[13px] font-medium text-purple-800/70 dark:text-purple-400/70 mb-1">Upcoming Due</p>
+            <h3 className="text-[24px] font-bold text-purple-900 dark:text-purple-300 leading-none">{upcomingAssessments.length}</h3>
           </div>
         </div>
 
         {/* Card 4 — Results */}
-        <div className="bg-[#FFFBEB] rounded-[20px] p-[20px] sm:p-[24px] border border-amber-100/50 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+        <div className="bg-[#FFFBEB] dark:bg-amber-950/20 rounded-[20px] p-[20px] sm:p-[24px] border border-amber-100/50 dark:border-amber-900/30 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div className="flex items-start justify-between">
-            <div className="w-10 h-10 rounded-xl bg-white/60 flex items-center justify-center text-[#F59E0B]">
+            <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-slate-900/60 flex items-center justify-center text-[#F59E0B] dark:text-amber-400">
               <CheckCircle2 className="w-5 h-5" />
             </div>
             {publishedGrades.length > 0 && (
-              <span className="inline-flex text-[12px] font-medium text-amber-700 bg-amber-100/50 px-2 py-1 rounded-md">
+              <span className="inline-flex text-[12px] font-medium text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-950/40 px-2 py-1 rounded-md">
                 Latest: {publishedGrades[0].grade?.grade}/100
               </span>
             )}
           </div>
           <div className="mt-4">
-            <p className="text-[13px] font-medium text-amber-800/70 mb-1">Results Published</p>
-            <h3 className="text-[24px] font-bold text-amber-900 leading-none">
+            <p className="text-[13px] font-medium text-amber-800/70 dark:text-amber-400/70 mb-1">Results Published</p>
+            <h3 className="text-[24px] font-bold text-amber-900 dark:text-amber-300 leading-none">
               {publishedGrades.length}
             </h3>
           </div>
@@ -182,7 +182,7 @@ export default async function StudentDashboardPage() {
             <span>Assessments Completed</span>
             <span>{progressPercentage}%</span>
           </div>
-          <div className="h-3 w-full bg-[#F4F7FB] rounded-full overflow-hidden">
+          <div className="h-3 w-full bg-[#F4F7FB] dark:bg-slate-950/60 rounded-full overflow-hidden">
             <div 
               className="h-full bg-[#2563EB] rounded-full transition-all duration-1000 ease-out" 
               style={{ width: `${progressPercentage}%` }}
@@ -219,15 +219,15 @@ export default async function StudentDashboardPage() {
             ) : (
               upcomingAssessments.map((a) => {
                 const daysLeft = getDaysUntil(a.deadline)
-                let daysLeftBg = "bg-[#EFF6FF]"
-                let daysLeftText = "text-[#2563EB]"
+                let daysLeftBg = "bg-[#EFF6FF] dark:bg-blue-950/30 dark:border dark:border-blue-900/40"
+                let daysLeftText = "text-[#2563EB] dark:text-blue-400"
                 
                 if (daysLeft <= 3) {
-                  daysLeftBg = "bg-red-50"
-                  daysLeftText = "text-red-700"
+                  daysLeftBg = "bg-red-50 dark:bg-red-950/30 dark:border dark:border-red-900/40"
+                  daysLeftText = "text-red-700 dark:text-red-400"
                 } else if (daysLeft <= 7) {
-                  daysLeftBg = "bg-[#FFFBEB]"
-                  daysLeftText = "text-[#F59E0B]"
+                  daysLeftBg = "bg-[#FFFBEB] dark:bg-amber-950/30 dark:border dark:border-amber-900/40"
+                  daysLeftText = "text-[#F59E0B] dark:text-amber-400"
                 }
 
                 return (
@@ -246,7 +246,7 @@ export default async function StudentDashboardPage() {
                       <p className="text-[14px] text-[#64748B] truncate">{a.module}</p>
                     </div>
                     <Link href={`/student/assessments/${a.id}`} className="flex-shrink-0 ml-4 mt-2">
-                      <Button variant="outline" className="h-9 rounded-xl text-[13px] font-medium bg-white/50 backdrop-blur-[20px] border-[#E2E8F0]/50 hover:bg-[#F4F7FB]/50">
+                      <Button variant="outline" className="h-9 rounded-xl text-[13px] font-medium bg-white/50 dark:bg-slate-900/40 backdrop-blur-[20px] border-[#E2E8F0]/50 dark:border-slate-800/60 hover:bg-[#F4F7FB]/50 dark:hover:bg-slate-900/60">
                         Submit
                       </Button>
                     </Link>
@@ -307,25 +307,25 @@ export default async function StudentDashboardPage() {
         <h2 className="text-[16px] font-semibold text-[#0F172A]">Quick Actions</h2>
         <div className="flex flex-wrap gap-3">
           <Link href="/student/assessments">
-            <Button variant="outline" className="h-10 rounded-xl bg-white border-[#E2E8F0] hover:bg-[#F4F7FB] text-[#0F172A] gap-2 shadow-sm">
+            <Button variant="outline" className="h-10 rounded-xl bg-white dark:bg-slate-900/40 border-[#E2E8F0] dark:border-slate-800/60 hover:bg-[#F4F7FB] dark:hover:bg-slate-900/60 text-[#0F172A] dark:text-slate-100 gap-2 shadow-sm">
               <ClipboardList className="w-4 h-4 text-[#64748B]" />
               Submit Assignment
             </Button>
           </Link>
           <Link href="/student/results">
-            <Button variant="outline" className="h-10 rounded-xl bg-white border-[#E2E8F0] hover:bg-[#F4F7FB] text-[#0F172A] gap-2 shadow-sm">
+            <Button variant="outline" className="h-10 rounded-xl bg-white dark:bg-slate-900/40 border-[#E2E8F0] dark:border-slate-800/60 hover:bg-[#F4F7FB] dark:hover:bg-slate-900/60 text-[#0F172A] dark:text-slate-100 gap-2 shadow-sm">
               <CheckCircle2 className="w-4 h-4 text-[#64748B]" />
               View Results
             </Button>
           </Link>
           <Link href="/student/fees">
-            <Button variant="outline" className="h-10 rounded-xl bg-white border-[#E2E8F0] hover:bg-[#F4F7FB] text-[#0F172A] gap-2 shadow-sm">
+            <Button variant="outline" className="h-10 rounded-xl bg-white dark:bg-slate-900/40 border-[#E2E8F0] dark:border-slate-800/60 hover:bg-[#F4F7FB] dark:hover:bg-slate-900/60 text-[#0F172A] dark:text-slate-100 gap-2 shadow-sm">
               <CreditCard className="w-4 h-4 text-[#64748B]" />
               View Fees
             </Button>
           </Link>
           <Link href="/student/profile">
-            <Button variant="outline" className="h-10 rounded-xl bg-white border-[#E2E8F0] hover:bg-[#F4F7FB] text-[#0F172A] gap-2 shadow-sm">
+            <Button variant="outline" className="h-10 rounded-xl bg-white dark:bg-slate-900/40 border-[#E2E8F0] dark:border-slate-800/60 hover:bg-[#F4F7FB] dark:hover:bg-slate-900/60 text-[#0F172A] dark:text-slate-100 gap-2 shadow-sm">
               <User className="w-4 h-4 text-[#64748B]" />
               View Profile
             </Button>

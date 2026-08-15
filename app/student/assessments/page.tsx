@@ -55,15 +55,15 @@ export default async function StudentAssessmentsPage() {
               const status = getAssessmentStatus(a.deadline)
               const daysLeft = getDaysUntil(a.deadline)
               
-              let daysLeftBg = "bg-[#EFF6FF]"
-              let daysLeftText = "text-[#2563EB]"
+              let daysLeftBg = "bg-[#EFF6FF] dark:bg-blue-950/30 dark:border dark:border-blue-900/40"
+              let daysLeftText = "text-[#2563EB] dark:text-blue-400"
               
               if (daysLeft <= 3) {
-                daysLeftBg = "bg-red-50"
-                daysLeftText = "text-red-700"
+                daysLeftBg = "bg-red-50 dark:bg-red-950/30 dark:border dark:border-red-900/40"
+                daysLeftText = "text-red-700 dark:text-red-400"
               } else if (daysLeft <= 7) {
-                daysLeftBg = "bg-[#FFFBEB]"
-                daysLeftText = "text-[#F59E0B]"
+                daysLeftBg = "bg-[#FFFBEB] dark:bg-amber-950/30 dark:border dark:border-amber-900/40"
+                daysLeftText = "text-[#F59E0B] dark:text-amber-400"
               }
 
               return (
@@ -113,7 +113,7 @@ export default async function StudentAssessmentsPage() {
           <h2 className="text-[16px] font-semibold text-[#0F172A] mb-4">Missed Deadlines ({missedAssessments.length})</h2>
           <div className="grid gap-3">
             {missedAssessments.map((a) => (
-              <div key={a.id} className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between p-5 sm:p-6 bg-red-50/60 backdrop-blur-[12px] border border-red-100/70 rounded-[24px] shadow-sm">
+              <div key={a.id} className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between p-5 sm:p-6 bg-red-50/60 dark:bg-red-950/20 backdrop-blur-[12px] border border-red-100/70 dark:border-red-900/30 rounded-[24px] shadow-sm">
                 <div className="min-w-0 flex-1">
                   <h3 className="text-[16px] font-semibold text-[#0F172A] truncate mb-1">{a.title}</h3>
                   <p className="text-[14px] text-[#64748B]">{a.module}</p>
@@ -145,7 +145,7 @@ export default async function StudentAssessmentsPage() {
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-1">
                       <h3 className="text-[16px] font-medium text-[#0F172A] truncate">{a.title}</h3>
-                      <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#059669] bg-[#ECFDF5] px-2.5 py-1 rounded-md border border-emerald-100/50">
+                      <span className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#059669] dark:text-emerald-400 bg-[#ECFDF5] dark:bg-emerald-950/40 px-2.5 py-1 rounded-md border border-emerald-100/50 dark:border-emerald-900/30">
                         <FileCheck className="w-3.5 h-3.5" /> Submitted
                       </span>
                     </div>

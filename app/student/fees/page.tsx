@@ -40,7 +40,7 @@ export default async function StudentFeesPage() {
 
       {/* Summary */}
       <div className="bg-white/78 backdrop-blur-[24px] rounded-[24px] border border-white/70 shadow-[0_2px_12px_rgba(15,23,42,0.03)] overflow-hidden flex flex-col sm:flex-row">
-        <div className="flex-1 p-6 sm:p-8 sm:border-r border-[#E2E8F0]">
+        <div className="flex-1 p-6 sm:p-8 sm:border-r border-[#E2E8F0] dark:border-slate-800/60">
           <p className="text-[13px] font-medium text-[#64748B] mb-2 uppercase tracking-wide">Total Fee Assessed</p>
           {student.fee ? (
             <CurrencyDisplay amount={student.fee.amount} className="text-[32px] font-bold text-[#0F172A] leading-none" />
@@ -51,12 +51,12 @@ export default async function StudentFeesPage() {
             <p className="text-[13px] text-[#64748B] mt-3">Due: {formatDate(student.fee.dueDate)}</p>
           )}
         </div>
-        <div className="flex-1 p-6 sm:p-8 sm:border-r border-[#E2E8F0]">
+        <div className="flex-1 p-6 sm:p-8 sm:border-r border-[#E2E8F0] dark:border-slate-800/60">
           <p className="text-[13px] font-medium text-[#64748B] mb-2 uppercase tracking-wide">Total Paid</p>
           <CurrencyDisplay amount={totalPaid} className="text-[32px] font-bold text-[#10B981] leading-none" />
           <p className="text-[13px] text-[#64748B] mt-3">{student.payments.length} payment(s)</p>
         </div>
-        <div className="flex-1 p-6 sm:p-8" style={{ background: 'rgba(241,245,249,0.50)' }}>
+        <div className="flex-1 p-6 sm:p-8 bg-[#F1F5F9]/50 dark:bg-slate-900/40">
           <p className="text-[13px] font-medium text-[#64748B] mb-2 uppercase tracking-wide">Outstanding Balance</p>
           {student.fee ? (
             <div className="flex items-center gap-3">
@@ -103,19 +103,19 @@ export default async function StudentFeesPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-[14px]">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                   <th className="text-left px-6 py-4 font-medium text-[#64748B]">Date</th>
                   <th className="text-left px-6 py-4 font-medium text-[#64748B]">Reference</th>
                   <th className="text-left px-6 py-4 font-medium text-[#64748B] hidden sm:table-cell">Notes</th>
                   <th className="text-right px-6 py-4 font-medium text-[#64748B]">Amount</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[#E2E8F0]">
+              <tbody className="divide-y divide-[#E2E8F0] dark:divide-slate-800/60">
                 {student.payments.map((p) => (
                   <tr key={p.id} className="hover:bg-indigo-50/20 transition-colors duration-100">
                     <td className="px-6 py-4 text-[#0F172A]">{formatDate(p.paymentDate)}</td>
                     <td className="px-6 py-4 font-mono text-[13px] text-[#64748B]">
-                      <span className="bg-white/60 backdrop-blur-sm px-2 py-0.5 rounded-md border border-slate-200/60">{p.referenceNumber}</span>
+                      <span className="bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm px-2 py-0.5 rounded-md border border-slate-200/60 dark:border-slate-800/60">{p.referenceNumber}</span>
                     </td>
                     <td className="px-6 py-4 text-[#64748B] hidden sm:table-cell">{p.notes ?? '—'}</td>
                     <td className="px-6 py-4 text-right font-semibold text-[#10B981]">

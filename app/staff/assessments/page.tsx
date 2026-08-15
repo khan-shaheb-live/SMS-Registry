@@ -49,7 +49,7 @@ export default async function AssessmentsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 dark:border-slate-800/60 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Assessment</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden md:table-cell">Module</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden lg:table-cell">Programme</th>
@@ -61,7 +61,7 @@ export default async function AssessmentsPage() {
                   <th className="text-right px-4 py-3 font-medium text-slate-600">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {assessments.map((a) => {
                   const status = getAssessmentStatus(a.deadline)
                   const gradedCount = a.submissions.filter(s => s.grade).length

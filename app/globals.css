@@ -350,15 +350,15 @@
 
 .dark .border-slate-100, 
 .dark .border-slate-200, 
-.dark .border-[#E2E8F0] {
+.dark .border-\[\#E2E8F0\] {
   border-color: rgba(51, 65, 85, 0.35) !important;
 }
 
-.dark .text-[#0F172A] {
+.dark .text-\[\#0F172A\] {
   color: #f8fafc !important;
 }
 
-.dark .text-[#64748B] {
+.dark .text-\[\#64748B\] {
   color: #cbd5e1 !important;
 }
 

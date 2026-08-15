@@ -82,7 +82,7 @@ export default async function ResultsPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200/70 bg-slate-100/70 dark:bg-slate-900/50">
+                <tr className="border-b border-slate-200/70 dark:border-slate-800/60 bg-slate-100/70 dark:bg-slate-900/60">
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Student</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Assessment</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden md:table-cell">Module</th>
@@ -92,9 +92,9 @@ export default async function ResultsPage({
                   <th className="text-right px-4 py-3 font-medium text-slate-600">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {filtered.map((sub) => (
-                  <tr key={sub.id} className="hover:bg-indigo-50/20 transition-colors duration-100">
+                  <tr key={sub.id} className="hover:bg-indigo-50/20 dark:hover:bg-slate-900/30 transition-colors duration-100">
                     <td className="px-4 py-3">
                       <Link href={`/staff/students/${sub.student.id}`} className="hover:text-blue-600">
                         <p className="font-medium text-slate-900">{sub.student.fullName}</p>

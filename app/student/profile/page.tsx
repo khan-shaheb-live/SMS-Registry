@@ -26,8 +26,8 @@ export default async function ProfilePage() {
       </div>
 
       <div className="bg-white/78 backdrop-blur-[24px] rounded-[24px] border border-white/70 p-6 sm:p-8 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E2E8F0]">
-          <div className="w-10 h-10 rounded-xl bg-[#ECFDF5] flex items-center justify-center text-[#10B981]">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E2E8F0] dark:border-slate-800/60">
+          <div className="w-10 h-10 rounded-xl bg-[#ECFDF5] dark:bg-emerald-950/40 flex items-center justify-center text-[#10B981] dark:text-emerald-400">
             <User className="w-5 h-5" />
           </div>
           <h2 className="text-[18px] font-semibold text-[#0F172A]">Personal Information</h2>
@@ -44,7 +44,7 @@ export default async function ProfilePage() {
             <dt className="text-[13px] text-[#64748B] mb-1.5 flex items-center gap-2">
               <Hash className="w-4 h-4" /> Student ID
             </dt>
-            <dd className="text-[15px] font-medium text-[#0F172A] font-mono bg-white/60 backdrop-blur-sm px-2 py-0.5 rounded-md inline-block border border-slate-200/60">{student.studentId}</dd>
+            <dd className="text-[15px] font-medium text-[#0F172A] font-mono bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm px-2 py-0.5 rounded-md inline-block border border-slate-200/60 dark:border-slate-800/60">{student.studentId}</dd>
           </div>
           <div>
             <dt className="text-[13px] text-[#64748B] mb-1.5 flex items-center gap-2">
@@ -62,9 +62,8 @@ export default async function ProfilePage() {
       </div>
 
       <div className="bg-white/78 backdrop-blur-[24px] rounded-[24px] border border-white/70 p-6 sm:p-8 shadow-[0_2px_12px_rgba(15,23,42,0.03)] hover:shadow-[0_4px_20px_rgba(15,23,42,0.05)] hover:-translate-y-0.5 transition-all duration-200">
-        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/50">
-
-          <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] flex items-center justify-center text-[#2563EB]">
+        <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[#E2E8F0] dark:border-slate-800/60">
+          <div className="w-10 h-10 rounded-xl bg-[#EFF6FF] dark:bg-blue-950/40 flex items-center justify-center text-[#2563EB] dark:text-blue-400">
             <BookOpen className="w-5 h-5" />
           </div>
           <h2 className="text-[18px] font-semibold text-[#0F172A]">Academic Enrolment</h2>

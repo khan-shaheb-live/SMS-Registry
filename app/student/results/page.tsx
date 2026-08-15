@@ -54,12 +54,12 @@ export default async function StudentResultsPage() {
                   </div>
                   
                   {sub.grade!.feedback ? (
-                    <div className="bg-[#EFF6FF] rounded-xl p-5 border border-[#DBEAFE] mt-4">
-                      <div className="flex items-center gap-2 text-[#1E40AF] mb-2">
+                    <div className="bg-[#EFF6FF] dark:bg-blue-950/20 rounded-xl p-5 border border-[#DBEAFE] dark:border-blue-900/30 mt-4">
+                      <div className="flex items-center gap-2 text-[#1E40AF] dark:text-blue-400 mb-2">
                         <Quote className="w-4 h-4" />
                         <span className="text-[12px] font-semibold uppercase tracking-wider">Feedback</span>
                       </div>
-                      <p className="text-[14px] text-[#334155] leading-relaxed whitespace-pre-wrap">{sub.grade!.feedback}</p>
+                      <p className="text-[14px] text-[#334155] dark:text-slate-300 leading-relaxed whitespace-pre-wrap">{sub.grade!.feedback}</p>
                     </div>
                   ) : (
                     <p className="text-[14px] text-[#94A3B8] italic mt-4">No feedback provided.</p>
@@ -72,7 +72,7 @@ export default async function StudentResultsPage() {
               </div>
               
               {/* Score side */}
-              <div className="flex flex-col items-center justify-center p-8 sm:w-56 flex-shrink-0 border-t sm:border-t-0 border-white/50" style={{ background: 'rgba(241,245,249,0.50)' }}>
+              <div className="flex flex-col items-center justify-center p-8 sm:w-56 flex-shrink-0 border-t sm:border-t-0 border-white/50 bg-[#F1F5F9]/50 dark:bg-slate-900/40">
 
                 <p className="text-[12px] text-[#64748B] font-semibold uppercase tracking-widest mb-3">Final Grade</p>
                 <div className="text-[48px] font-bold text-[#0F172A] tabular-nums leading-none mb-4 flex items-baseline">

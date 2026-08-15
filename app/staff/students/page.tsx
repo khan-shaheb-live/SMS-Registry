@@ -123,7 +123,7 @@ export default async function StudentsPage({
                   const isActive = (!status && !value) || status === value;
                   return (
                     <Link key={value} href={buildUrl({ status: value || undefined })}>
-                      <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${isActive ? 'bg-slate-900 text-white font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'}`}>
+                      <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${isActive ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'}`}>
                         {label}
                       </div>
                     </Link>
@@ -138,7 +138,7 @@ export default async function StudentsPage({
                 <h3 className="text-[11px] font-medium text-slate-700 uppercase tracking-wider pl-1">Programme</h3>
                 <div className="inline-flex flex-wrap items-center bg-white/78 backdrop-blur-[24px] border border-white/70 rounded-[12px] p-1 shadow-[0_2px_8px_rgba(15,23,42,0.02)]">
                   <Link href={buildUrl({ programme: undefined })}>
-                    <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${!programmeId ? 'bg-slate-900 text-white font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'}`}>
+                    <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${!programmeId ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'}`}>
                       All Programmes
                     </div>
                   </Link>
@@ -146,7 +146,7 @@ export default async function StudentsPage({
                     const isActive = programmeId === p.id;
                     return (
                       <Link key={p.id} href={buildUrl({ programme: p.id })}>
-                        <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${isActive ? 'bg-slate-900 text-white font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70'}`}>
+                        <div className={`px-3.5 py-1.5 text-sm rounded-[8px] transition-all duration-150 cursor-pointer ${isActive ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-medium shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white/70 dark:hover:bg-slate-800/60'}`}>
                           {p.name}
                         </div>
                       </Link>
@@ -190,7 +190,7 @@ export default async function StudentsPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 dark:border-slate-800/60 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                   <th className="text-left px-4 py-3 font-medium text-slate-600 whitespace-nowrap">Student ID</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Name</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden md:table-cell">Email</th>
@@ -201,7 +201,7 @@ export default async function StudentsPage({
                   <th className="text-right px-4 py-3 font-medium text-slate-600">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {students.map((student) => {
                   const totalPaid = student.payments.reduce(
                     (sum, p) => sum + parseFloat(p.amount.toString()), 0
@@ -272,7 +272,7 @@ export default async function StudentsPage({
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="border-t border-slate-200/60 px-4 py-3 flex items-center justify-between">
+          <div className="border-t border-slate-200/60 dark:border-slate-800/60 px-4 py-3 flex items-center justify-between">
             <p className="text-sm text-slate-700">
               Showing {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, total)} of {total}
             </p>

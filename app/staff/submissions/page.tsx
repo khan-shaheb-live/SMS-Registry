@@ -72,7 +72,7 @@ export default async function SubmissionsPage({
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-slate-200/70" style={{ background: 'rgba(241,245,249,0.70)' }}>
+                <tr className="border-b border-slate-200/70 dark:border-slate-800/60 bg-[#F1F5F9]/70 dark:bg-slate-900/60">
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Student</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600">Assessment</th>
                   <th className="text-left px-4 py-3 font-medium text-slate-600 hidden md:table-cell">Submitted</th>
@@ -81,9 +81,9 @@ export default async function SubmissionsPage({
                   <th className="text-right px-4 py-3 font-medium text-slate-600">Grade</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60">
                 {submissions.map((sub) => (
-                  <tr key={sub.id} className={`hover:bg-indigo-50/20 transition-colors duration-100 ${sub.isLate ? 'bg-red-50/20' : ''}`}>
+                  <tr key={sub.id} className={`hover:bg-indigo-50/20 dark:hover:bg-slate-900/30 transition-colors duration-100 ${sub.isLate ? 'bg-red-50/20 dark:bg-red-950/10' : ''}`}>
                     <td className="px-4 py-3">
                       <Link href={`/staff/students/${sub.student.id}`} className="hover:text-blue-600">
                         <p className="font-medium text-slate-900">{sub.student.fullName}</p>

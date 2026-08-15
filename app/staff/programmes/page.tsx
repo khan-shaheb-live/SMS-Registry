@@ -34,13 +34,13 @@ export default async function ProgrammesPage() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <span className="font-mono text-xs font-semibold tracking-wider text-blue-600 bg-blue-50/80 px-2.5 py-1 rounded-md uppercase border border-blue-100/60">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/30 px-2.5 py-1 rounded-md uppercase border border-blue-100/60 dark:border-blue-900/30">
 
                       {p.code}
                     </span>
                     <h3 className="mt-3 text-lg font-bold text-slate-900">{p.name}</h3>
                   </div>
-                  <Badge className={isActive ? 'bg-emerald-100/80 text-emerald-800 hover:bg-emerald-100/80 border border-emerald-200/50' : 'bg-slate-100/80 text-slate-700 hover:bg-slate-100/80 border border-slate-200/50'}>
+                  <Badge className={isActive ? 'bg-emerald-100/80 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-400 hover:bg-emerald-100/80 border border-emerald-200/50 dark:border-emerald-900/30' : 'bg-slate-100/80 dark:bg-slate-900/30 text-slate-700 dark:text-slate-400 hover:bg-slate-100/80 border border-slate-200/50 dark:border-slate-800/40'}>
 
                     {isActive ? 'Active' : 'Inactive'}
                   </Badge>
